@@ -1,0 +1,49 @@
+---
+title: "Module4"
+author: "Whitney Walker"
+date: "2/22/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r mtcars}
+
+```
+
+```{r}
+fourcyl <- subset(mtcars,cyl=="4")
+print(fourcyl)
+```
+
+## Plots
+
+Here are my plots for the Homework:
+
+```{r, echo=FALSE}
+reg <- lm(fourcyl$disp ~ fourcyl$mpg)
+plot(fourcyl$mpg, fourcyl$disp,
+     pch=16, frame=FALSE, col="#492f24", cex=1.0,
+     ylab="Engine Displacement", xlab="Mileage (mpg)", main="Four Cylinder Relationship")
+abline(reg, col="#ffc425")
+
+```
+
+
+``` {r, echo=FALSE}
+sixcyl <- subset(mtcars,cyl=="6")
+
+reg1 <- lm(sixcyl$disp ~ sixcyl$mpg)
+plot(sixcyl$mpg, sixcyl$disp,
+     pch=16, frame=FALSE, col="#492f24", cex=1.0,
+     ylab="Engine Displacement", xlab="Mileage (mpg)", main="Six Cylinder Relationship")
+abline(reg1, col="#ffc425")
+```
